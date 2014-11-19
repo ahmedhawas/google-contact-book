@@ -1,0 +1,5 @@
+<h1> Contact Book</h1>
+
+<% if user_signed_in? %>
+Check your <%= link_to "Contacts", user_contacts_path(current_user.id) %>
+<% end %>

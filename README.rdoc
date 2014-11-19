@@ -1,0 +1,23 @@
+This app lets you: 
+1. Create User through email and password.
+2. Or authenticate user through google oauth
+3. You can create/edit/delete contacts
+4. If signed in with google it will import your contacts
+
+How to get it working: 
+1. You need rails.4.1.2 (Through rvm or rbenv)
+2. git clone https://github.com/ahmedhawas/google.contact.book.git
+3. bundle install
+4. rake db:create
+5. rake db:migrate
+6. rails s
+7. setup a tunnel with ngrok on localhost:3000 to point to http://addressbook.ngrok.com/ 
+This is needed as google api needs a live url to authenticate 
+* To setup the tunnel. Download https://ngrok.com/download and follow the instructions there.
+* run ./ngrok -subdomain=addressbook 3000
+If everything worked then visit http://addressbook.ngrok.com/ and the app should be live!
+
+Specs:
+I have a small test setup using rspec. 
+1. gem install rspec
+2. bundle exec rpsec (to run the tests)

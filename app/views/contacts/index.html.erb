@@ -1,0 +1,29 @@
+<h1> Contacts </h1>
+
+<% if @contacts.length ==0 %>
+  <p> There are currently no contacts! </p>
+<% end %>
+<% if @contacts.length !=0 %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Telephone Number</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for contact in @contacts %>
+      <tr>
+        <td><%= contact.name %></td>
+        <td><%= contact.number %></td>
+        <td><%= contact.email %></td>
+        <td><%= link_to "Edit", edit_user_contact_path(current_user.id, contact.id) %> 
+          <%= link_to "Delete", user_contact_path(current_user.id, contact.id), :confirm => "Are you sure you want to delete this Contact?", :method => :delete %></td>
+      </tr> 
+    <% end %>
+  </tbody>  
+</table>
+<% end %>
+
+<p> <%= link_to "Add Contact", new_user_contact_path(@user.id) %> </p>
